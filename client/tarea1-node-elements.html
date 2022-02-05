@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+      <div id="app"></div>
+    <script>
+      const tasks = [
+        {
+          title: "Tarea 1",
+          descp: "Descripcion de la tarea 1",
+          done: false,
+        },
+        {
+          title: "Tarea 2",
+          descp: "Descripcion de la tarea 2",
+          done: true,
+        },
+        {
+          title: "Tarea 3",
+          descp: "Descripcion de la tarea 3",
+          done: false,
+        },
+        {
+          title: "Tarea 4",
+          descp: "Descripcion de la tarea 4",
+          done: true,
+        },
+      ];
+
+      const app = document.getElementById("app");
+      tasks.forEach((task) => {
+        const wrapper = document.createElement('div');
+        const nodeEl = document.createElement('span');
+        const checkedInput = document.createElement('input');
+        checkedInput.type = 'checkbox';
+        checkedInput.checked = task.done;
+        nodeEl.innerText = `${task.title} `;
+        wrapper.append(checkedInput, nodeEl);
+        app.appendChild(wrapper);
+      });
+    </script>
+  </body>
+</html>

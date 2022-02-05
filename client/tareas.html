@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+
+<body>
+    <section class="tasklist-section">
+        <div class="tasklist-container">
+            <label for="tarea" class="tasklist_input-container">
+                <span class="tasklist_input-container--title">Tarea:</span>
+                <input type="text" placeholder="Ej. Hacer ejercicio..." id="tarea" name="tarea"
+                    class="tasklist_input-container--input">
+            </label>
+            <button id="btn-task" class="add-btn">Añadir</button>
+            
+            <div class="lista-tareas">
+                <h2 class="lista-tareas_title">Tareas</h2>
+            </div>
+            <button class="delete">Eliminar tareas Seleccionadas</button>
+        </div>
+    </section>
+    <!-- -----------------------JS-------------------------------------------- -->
+    <script>
+        const tarea = document.querySelector('#tarea'); //input
+        const tareasPendientes = document.querySelector('.lista-tareas');
+        const btn = document.querySelector('#btn-task');
+        const tareas = [];
+        const tareasListas = [];
+        let checkbox;
+        const delete_btn = document.querySelector('.delete')
+
+        btn.addEventListener('click', crearTarea)
+
+        function crearTarea() {
+            let task = tarea.value //value input
+            if (task == '' || task == null) {
+                alert("Deber introducir una tarea")
+            }
+            else {
+                tareas.push({ title: task, completed: false })
+                tareasPendientes.innerHTML += `<div><li>${task}</li><input type="checkbox" id="task-input"></div>`
+
+                checkbox = document.getElementById('task-input');
+                tareas.forEach(task => task.completed = checkbox)
+                console.log(tareas)
+            }
+        }
+
+        delete_btn.addEventListener('click', function () {
+            tareas.forEach(task => {
+                if (task.completed.checked) {
+                    tareas.splice(task, 1)
+                    console.log("yuhu")
+                }
+                else {
+                    console.log("nahh")
+                }
+                console.log(tareas)
+            })
+        })
+    </script>
+</body>
+
+</html>
