@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+
+        const tasks = [
+            { title: 'make dinner', done: false },
+            { title: 'sweep the floor', done: true },
+            { title: 'feed the kittens', done: true },
+            { title: 'buy groceries', done: false },
+            { title: 'take a bath', done: true },
+        ];
+
+        tasks.forEach(({ title, done }) => {
+            const element = `
+         <li>
+          	 <input 
+                     type='checkbox' 
+                     id='${title}' 
+                     name='${title}' 
+                     ${done && 'checked'} />
+                  <label for='${title}' >${title} </label>   
+         </li>`;
+            app.insertAdjacentHTML('beforeend', element);
+        });
+
+        //other
+        /* const app = document.getElementById('app');
+
+        tasks.forEach(task => {
+            app.innerHTML += `
+                <li> 
+                    Nombre: ${task.task} ||  
+                    Descripción: ${task.descp} - 
+                    <input type="checkbox" ${task.done ? 'checked' : ''}/>
+                </li>`
+        }); */
+        
+    </script>
+
+</body>
+
+</html>
