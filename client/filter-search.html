@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="buscador" id="buscador" />
+    <div id="lista"></div>
+    <p><strong>personas del buscador </strong></p>
+    <div id="labels"></div> <!--para colocar los nombres del array-->
+
+    <script>
+        
+      const nombres = [
+        "Nicolas",
+        "Nazareno",
+        "Alvaro",
+        "Cecilia",
+        "Mariana",
+        "Martin",
+        "Jose",
+        "Ariana",
+        "Javier",
+      ];
+      //const buscador = document.querySelector("#buscador"); //Input type Text
+      const labels = document.getElementById("labels");
+      const buscador = document.getElementById("buscador"); //Input type Text
+      const lista = document.querySelector("#lista"); //Div vacio
+      //recorrer cada uno de los nombres para poder visualizarlos
+      nombres.forEach((item) => {
+        labels.innerHTML += `
+                <li> 
+                    <label for='${item}' >${item} </label>   
+                </li>`;
+      });
+      const buscar = (input, array) => {
+        console.log(input);
+
+        const listaItems = array.filter((item) =>
+          item.toLowerCase().includes(input.toLowerCase())
+        );
+
+        lista.innerText = listaItems;
+      };
+
+      buscador.addEventListener("input", () => buscar(buscador.value, nombres));
+    </script>
+  </body>
+</html>
