@@ -1,3 +1,4 @@
+//solo devuelve un único valor.
 list = [];
 
 for (let index = 0; index < 30; index++) {
