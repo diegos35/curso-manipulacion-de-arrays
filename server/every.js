@@ -33,4 +33,11 @@ const admision = team => {
     return team.every(player => player.age < 15)
 }
 
+
+
 console.log(admision(team));
+
+const underage = team
+.map(person => person.age)
+.every(age => age <= 15)
+console.log('underage',underage);
