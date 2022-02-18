@@ -20,17 +20,17 @@ const orders = [
         delivered: true,
     },
 ];
-console.log('orginal', orders);
-const resp = orders.map(({total}) => total);
+const newOrder = orders.map(({total}) => total);
   
-console.log('new', resp);
 
 const rta = orders.map(item => {
     // retornamos un nuevo objeto 
     //pero evitamos hacer ref. en memoria
     return {
-        ...item, //spread operator
+        ...item, //spread operator CREA UN NUEVO OBJECTO
         tax: .19,//agregando propiedad al nuevo objecto
     }
 })
-console.log('rta',rta);
+console.log('orginal', orders);
+console.log('new', newOrder);
+console.log('nuevo objecto de order',rta);
