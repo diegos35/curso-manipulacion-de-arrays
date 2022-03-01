@@ -1,3 +1,4 @@
+//Cambie el estado original de un array
 const totals = [1,2,3,4];
 const suma = totals.reduce((sum, element) => sum + element,0)
 console.log(suma);

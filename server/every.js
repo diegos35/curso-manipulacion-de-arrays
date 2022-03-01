@@ -41,3 +41,7 @@ const underage = team
 .map(person => person.age)
 .every(age => age <= 15)
 console.log('underage',underage);
+
+const array = ['a', 'bb', 'cscc'];
+const r = array.map(item => item.length)
+console.log('r',r)
